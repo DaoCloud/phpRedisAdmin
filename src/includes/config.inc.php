@@ -1,5 +1,9 @@
 <?php
 
+$session_name = 'DaoCloudPRA';
+session_name($session_name);
+session_start();
+
 $config = array(
   'servers' => array(),
   'seperator' => ':',
@@ -10,9 +14,6 @@ $config = array(
 );
 
 function inject_redis_config($config) {
-  $session_name = 'DaoCloudPRA';
-  session_name($session_name);
-
   $redis_config = array(
     'name' => $_SESSION['DAO_service_name'], 
     'host' => $_SESSION['PRA_single_signon_host'],
@@ -22,8 +23,9 @@ function inject_redis_config($config) {
     );
 
   array_push($config['servers'], $redis_config);
-  return $config
+  return $config;
 }
 
-inject_redis_config($config);
+$config = inject_redis_config($config);
+session_destroy();
 ?>
