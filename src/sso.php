@@ -1,4 +1,7 @@
 <?php
+
+require_once dirname(__FILE__) . '/sso.config.php';
+
 error_reporting(0);
 session_set_cookie_params(1500, '/', '', false);
 /* Create signon session */

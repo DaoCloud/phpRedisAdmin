@@ -1,6 +1,7 @@
 <?php
 
-$session_name = 'DaoCloudPRA';
+require_once dirname(__FILE__) . '/../sso.config.php';
+
 session_name($session_name);
 session_start();
 
