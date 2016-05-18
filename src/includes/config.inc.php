@@ -28,5 +28,4 @@ function inject_redis_config($config) {
 }
 
 $config = inject_redis_config($config);
-session_destroy();
 ?>
