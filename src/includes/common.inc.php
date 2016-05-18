@@ -122,6 +122,7 @@ try {
     $redis->connect();
 } catch (Predis\CommunicationException $exception) {
     $redis = false;
+    die('ERROR: Predis Communication failed ('.$server['host'].':'.$server['port'].')');
 }
 
 if (isset($server['auth'])) {
